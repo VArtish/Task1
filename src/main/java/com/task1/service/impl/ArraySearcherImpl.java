@@ -3,12 +3,18 @@ package com.task1.service.impl;
 import com.task1.entity.CustomArray;
 import com.task1.exception.AppException;
 import com.task1.service.inter.ArraySearcher;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArraySearcherImpl implements ArraySearcher {
+
+    private static final Logger LOGGER = LogManager.getLogger(ArraySearcherImpl.class);
 
     @Override
     public int findMin(CustomArray entity) throws AppException {
         if (entity == null) {
+            LOGGER.log(Level.ERROR, "Null pointer!");
             throw new AppException("Null pointer!");
         }
 

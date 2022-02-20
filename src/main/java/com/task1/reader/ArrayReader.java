@@ -7,9 +7,14 @@ import java.util.List;
 
 import com.task1.exception.AppException;
 import com.task1.validator.*;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArrayReader {
+
     private static ArrayReader instance = null;
+    private static final Logger LOGGER = LogManager.getLogger(ArrayReader.class);
 
     private ArrayReader() {
     }
@@ -25,14 +30,17 @@ public class ArrayReader {
     public String readFile(String path) throws AppException {
 
         if (path == null) {
+            LOGGER.log(Level.ERROR, "Input file name cannot be null!");
             throw new AppException("Input file name cannot be null!");
         }
 
         if (path.length() == 0) {
+            LOGGER.log(Level.ERROR, "Input file name cannot be empty!");
             throw new AppException("Input file name cannot be empty!");
         }
 
         if (Files.notExists(Paths.get(path))) {
+            LOGGER.log(Level.ERROR, "Input file not found!");
             throw new AppException("Input file not found!");
         }
 
@@ -49,9 +57,11 @@ public class ArrayReader {
             }
 
             if(rightLine == null){
-                throw new AppException("No valid line in the fil!");
+                LOGGER.log(Level.ERROR, "No valid line in the file!");
+                throw new AppException("No valid line in the file!");
             }
         } catch (IOException e) {
+            LOGGER.log(Level.ERROR, "Error while reading file!");
             throw new AppException("Error while reading file!");
         }
 

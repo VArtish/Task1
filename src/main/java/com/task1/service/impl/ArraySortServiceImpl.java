@@ -3,12 +3,18 @@ package com.task1.service.impl;
 import com.task1.exception.AppException;
 import com.task1.service.inter.ArraySortService;
 import com.task1.entity.CustomArray;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ArraySortServiceImpl implements ArraySortService {
+
+    private static final Logger LOGGER = LogManager.getLogger(ArraySortServiceImpl.class);
 
     @Override
     public void bubbleSort(CustomArray entity) throws AppException {
         if (entity == null) {
+            LOGGER.log(Level.ERROR, "Null pointer!");
             throw new AppException("Null pointer!");
         }
 
@@ -31,6 +37,7 @@ public class ArraySortServiceImpl implements ArraySortService {
     @Override
     public void selectionSort(CustomArray entity) throws AppException {
         if (entity == null) {
+            LOGGER.log(Level.ERROR, "Null pointer!");
             throw new AppException("Null pointer!");
         }
 
@@ -60,6 +67,7 @@ public class ArraySortServiceImpl implements ArraySortService {
     @Override
     public void insertionSort(CustomArray entity) throws AppException {
         if (entity == null) {
+            LOGGER.log(Level.ERROR, "Null pointer!");
             throw new AppException("Null pointer!");
         }
 
