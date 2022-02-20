@@ -48,4 +48,23 @@ public class CustomArray {
 
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+
+        if(o == null || getClass() != o.getClass()){
+            return false;
+        }
+
+        CustomArray entity = (CustomArray)o;
+        return Arrays.equals(array, entity.array);
+    }
+
+    @Override
+    public int hashCode(){
+        return Arrays.hashCode(array);
+    }
 }
