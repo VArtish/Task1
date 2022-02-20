@@ -14,7 +14,7 @@ public class ArraySearcherImplTest {
     private CustomArray entity;
 
     @BeforeTest
-    public void init(){
+    public void setUp(){
         arraySearcher = new ArraySearcherImpl();
         entity = new CustomArray(1, 2, 3);
     }

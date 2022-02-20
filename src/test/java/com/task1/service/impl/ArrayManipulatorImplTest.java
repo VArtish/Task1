@@ -13,7 +13,7 @@ public class ArrayManipulatorImplTest {
     private CustomArray entity;
 
     @BeforeTest
-    public void init(){
+    public void setUp(){
         arrayManipulator = new ArrayManipulatorImpl();
         entity = new CustomArray(1, 2, 3);
     }

@@ -12,25 +12,30 @@ public class ArrayCalculatorImplTest {
     private CustomArray entity;
 
     @BeforeTest
-    public void init(){
+    public void setUp() {
         arrayCalculator = new ArrayCalculatorImpl();
         entity = new CustomArray(1, 2, 3);
     }
 
     @Test(description = "check calculating function")
-    public void testCalculatingSum(){
+    public void testCalculatingSum() {
         double expectedResult = 6;
         double actualResult = -1;
 
         try {
-            actualResult = arrayCalculator.calculatingAverage(entity);
-        }
-        catch(AppException e){
+            actualResult = arrayCalculator.calculatingSum(entity);
+        } catch (AppException e) {
             System.out.println(e.getMessage());
         }
 
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for calculating average!");
     }
+
+    @Test(expectedExceptions = AppException.class)
+    public void testCalculatingSumExcept() throws AppException {
+        arrayCalculator.calculatingSum(null);
+    }
+
 
     @Test(description = "check calculating average function")
     public void testCalculatingAverage() {
@@ -39,12 +44,16 @@ public class ArrayCalculatorImplTest {
 
         try {
             actualResult = arrayCalculator.calculatingAverage(entity);
-        }
-        catch(AppException e){
+        } catch (AppException e) {
             System.out.println(e.getMessage());
         }
 
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for calculating average!");
+    }
+
+    @Test(expectedExceptions = AppException.class)
+    public void testCalculatingAverageExcept() throws AppException {
+        arrayCalculator.calculatingAverage(null);
     }
 
     @Test(description = "check function - negativeNumbersInArray")
@@ -54,12 +63,16 @@ public class ArrayCalculatorImplTest {
 
         try {
             actualResult = arrayCalculator.negativeNumbersInArray(entity);
-        }
-        catch(AppException e){
+        } catch (AppException e) {
             System.out.println(e.getMessage());
         }
 
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for calculating negative numbers!");
+    }
+
+    @Test(expectedExceptions = AppException.class)
+    public void testNegativeNumbersInArrayExcept() throws AppException {
+        arrayCalculator.negativeNumbersInArray(null);
     }
 
     @Test(description = "check function - positiveNumbersInArray")
@@ -69,11 +82,15 @@ public class ArrayCalculatorImplTest {
 
         try {
             actualResult = arrayCalculator.positiveNumbersInArray(entity);
-        }
-        catch(AppException e){
+        } catch (AppException e) {
             System.out.println(e.getMessage());
         }
 
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for calculating positive numbers!");
+    }
+
+    @Test(expectedExceptions = AppException.class)
+    public void testPositiveNumbersInArrayExcept() throws AppException {
+        arrayCalculator.positiveNumbersInArray(null);
     }
 }
