@@ -32,7 +32,11 @@ public class ArraySearcherImplTest {
         }
 
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for findMin!");
+    }
 
+    @Test(expectedExceptions = AppException.class)
+    public void testFindMinExcept() throws AppException {
+        arraySearcher.findMin(null);
     }
 
     @Test
@@ -48,5 +52,10 @@ public class ArraySearcherImplTest {
         }
 
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for findMax!");
+    }
+
+    @Test(expectedExceptions = AppException.class)
+    public void testFindMaxExcept() throws AppException {
+        arraySearcher.findMax(null);
     }
 }
