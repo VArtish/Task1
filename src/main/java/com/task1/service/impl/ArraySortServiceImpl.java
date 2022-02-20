@@ -16,8 +16,7 @@ public class ArraySortServiceImpl implements ArraySortService {
         int supportElement;
 
         for (int i = 0; i < tempArray.length; i++) {
-            for (int j = 0; j < tempArray.length - i; j++) {
-
+            for (int j = 0; j < tempArray.length - i - 1; j++) {
                 if (tempArray[j + 1] < tempArray[j]) {
                     supportElement = tempArray[j + 1];
                     tempArray[j + 1] = tempArray[j];
@@ -64,24 +63,23 @@ public class ArraySortServiceImpl implements ArraySortService {
             throw new AppException("Null pointer!");
         }
 
-        int[] tempArray = entity.getArray();
+        int[] array = entity.getArray();
 
-        for (int left = 0; left < tempArray.length; left++) {
-
-            int value = tempArray[left];
+        for (int left = 0; left < array.length; left++) {
+            int value = array[left];
             int i = left - 1;
 
             for (; i >= 0; i--) {
-
-                if (value < tempArray[i]) {
-                    tempArray[i + 1] = tempArray[i];
+                if (value < array[i]) {
+                    array[i + 1] = array[i];
                 } else {
                     break;
                 }
             }
-            tempArray[i + 1] = value;
+
+            array[i + 1] = value;
         }
 
+        entity.setArray(array);
     }
-
 }

@@ -5,6 +5,7 @@ import com.task1.exception.AppException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 import java.util.function.Predicate;
 
 public class ArrayManipulatorImplTest {
@@ -13,24 +14,22 @@ public class ArrayManipulatorImplTest {
     private CustomArray entity;
 
     @BeforeTest
-    public void setUp(){
+    public void setUp() {
         arrayManipulator = new ArrayManipulatorImpl();
         entity = new CustomArray(1, 2, 3);
     }
 
     @Test(description = "check function - changeElementByCondition")
     public void testChangeElementByCondition() {
-        CustomArray expectedEntity = new CustomArray(1, 0, 0);
+        int[] expectedArray = {1, 0, 0};
         int changeValue = 0;
-
 
         try {
             arrayManipulator.changeElementByCondition(entity, x -> (x > 1), changeValue);
-        }
-        catch(AppException e){
+        } catch (AppException e) {
             System.out.println(e.getMessage());
         }
 
-        Assert.assertEquals(entity.getArray(), expectedEntity.getArray(), "This result is not corrected for changeElementByCondition!");
+        Assert.assertEquals(entity.getArray(), expectedArray, "This result is not corrected for changeElementByCondition!");
     }
 }
