@@ -10,7 +10,7 @@ public class CustomArray {
     public CustomArray() {
     }
 
-    public CustomArray(int... array){
+    public CustomArray(int... array) {
         this.array = array;
     }
 
@@ -18,7 +18,10 @@ public class CustomArray {
         return Arrays.copyOf(array, array.length);
     }
 
-    public void setArray(int... array){
+    public void setArray(int... array) throws AppException {
+        if (array == null) {
+            throw new AppException("Null pointer!");
+        }
         this.array = array;
     }
 
@@ -39,10 +42,10 @@ public class CustomArray {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
         StringBuilder sb = new StringBuilder();
-        for(int a: array){
+        for (int a : array) {
             sb.append(a).append("");
         }
 
@@ -50,21 +53,21 @@ public class CustomArray {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(this == o){
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
 
-        if(o == null || getClass() != o.getClass()){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
 
-        CustomArray entity = (CustomArray)o;
+        CustomArray entity = (CustomArray) o;
         return Arrays.equals(array, entity.array);
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Arrays.hashCode(array);
     }
 }
