@@ -20,16 +20,15 @@ public class ArrayManipulatorImplTest {
     }
 
     @Test(description = "check function - changeElementByCondition")
-    public void testChangeElementByCondition() {
+    public void testChangeElementByCondition() throws AppException {
         int[] expectedArray = {1, 0, 0};
-        int changeValue = 0;
 
-        try {
-            arrayManipulator.changeElementByCondition(entity, x -> (x > 1), changeValue);
-        } catch (AppException e) {
-            System.out.println(e.getMessage());
-        }
-
+        arrayManipulator.changeElementByCondition(entity, x -> (x > 1), 0);
         Assert.assertEquals(entity.getArray(), expectedArray, "This result is not corrected for changeElementByCondition!");
+    }
+
+    @Test(expectedExceptions = AppException.class)
+    public void testCalculatingAverageExcept() throws AppException {
+        arrayManipulator.changeElementByCondition(null, x -> (x > 1), 3);
     }
 }

@@ -20,17 +20,11 @@ public class ArraySearcherImplTest {
     }
 
     @Test
-    public void testFindMin() {
+    public void testFindMin() throws AppException {
         double expectedResult = 1;
         double actualResult = -1;
 
-        try {
-            actualResult = arraySearcher.findMin(entity);
-        }
-        catch(AppException e){
-            System.out.println(e.getMessage());
-        }
-
+        actualResult = arraySearcher.findMin(entity);
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for findMin!");
     }
 
@@ -40,17 +34,11 @@ public class ArraySearcherImplTest {
     }
 
     @Test
-    public void testFindMax() {
+    public void testFindMax() throws AppException {
         double expectedResult = 3;
         double actualResult = -1;
 
-        try {
-            actualResult = arraySearcher.findMax(entity);
-        }
-        catch(AppException e){
-            System.out.println(e.getMessage());
-        }
-
+        actualResult = arraySearcher.findMax(entity);
         Assert.assertEquals(actualResult, expectedResult, "This result is not corrected for findMax!");
     }
 

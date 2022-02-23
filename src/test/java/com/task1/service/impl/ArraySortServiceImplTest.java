@@ -19,14 +19,10 @@ public class ArraySortServiceImplTest {
     }
 
     @Test
-    public void testBubbleSort() {
+    public void testBubbleSort() throws AppException {
         int[] expectedEntity = {1, 2, 3, 4, 5};
 
-        try {
-            arraySort.bubbleSort(entity);
-        } catch (AppException e) {
-        }
-
+        arraySort.bubbleSort(entity);
         Assert.assertEquals(entity.getArray(), expectedEntity, "This result is not corrected for bubbleSort!");
     }
 
@@ -36,14 +32,10 @@ public class ArraySortServiceImplTest {
     }
 
     @Test
-    public void testSelectionSort() {
+    public void testSelectionSort() throws AppException {
         int[] expectedEntity = {1, 2, 3, 4, 5};
 
-        try {
-            arraySort.selectionSort(entity);
-        } catch (AppException e) {
-        }
-
+        arraySort.selectionSort(entity);
         Assert.assertEquals(entity.getArray(), expectedEntity, "This result is not corrected for selectionSort!");
     }
 
@@ -53,14 +45,10 @@ public class ArraySortServiceImplTest {
     }
 
     @Test
-    public void testInsertionSort() {
+    public void testInsertionSort() throws AppException {
         int[] expectedEntity = {1, 2, 3, 4, 5};
 
-        try {
-            arraySort.insertionSort(entity);
-        } catch (AppException e) {
-        }
-
+        arraySort.insertionSort(entity);
         Assert.assertEquals(entity.getArray(), expectedEntity, "This result is not corrected for insertionSort!");
     }
 
