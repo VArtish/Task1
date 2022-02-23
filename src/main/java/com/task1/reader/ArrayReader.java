@@ -49,14 +49,14 @@ public class ArrayReader {
         try {
             List<String> lines = Files.readAllLines(Paths.get(path));
 
-            for(String line : lines){
-                if(ArrayValidator.getInstance().validateArrayString(line)){
+            for (String line : lines) {
+                if (ArrayValidator.getInstance().validateArrayString(line)) {
                     rightLine = line;
                     break;
                 }
             }
 
-            if(rightLine == null){
+            if (rightLine == null) {
                 LOGGER.log(Level.ERROR, "No valid line in the file!");
                 throw new AppException("No valid line in the file!");
             }
