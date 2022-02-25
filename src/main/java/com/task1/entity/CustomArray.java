@@ -6,16 +6,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
+import java.util.UUID;
 
 public class CustomArray {
 
     private int[] array;
+    private String arrayId;
     private static final Logger LOGGER = LogManager.getLogger(CustomArray.class);
 
     public CustomArray() {
+        this.arrayId = UUID.randomUUID().toString();
     }
 
     public CustomArray(int... array) {
+        this.arrayId = UUID.randomUUID().toString();
         this.array = array.clone();
     }
 
@@ -40,6 +44,10 @@ public class CustomArray {
         return array[index];
     }
 
+    public String getArrayId() {
+        return this.arrayId;
+    }
+
     public void setElement(int index, int element) throws AppException {
         if (index < 0 || index >= array.length) {
             LOGGER.log(Level.ERROR, "Index out of range!");
@@ -54,8 +62,9 @@ public class CustomArray {
 
         StringBuilder sb = new StringBuilder();
         for (int a : array) {
-            sb.append(a).append("");
+            sb.append(a).append(" ");
         }
+        sb.append(arrayId).append("");
 
         return sb.toString();
     }
