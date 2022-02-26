@@ -24,7 +24,12 @@ public class ArrayWarehouse {
         return INSTANCE;
     }
 
-    public void put(String arrayId, ArrayParameters element){
+    public void put(String arrayId, ArrayParameters element) throws AppException{
+        if(element == null){
+            LOGGER.log(Level.ERROR, "Null pointer" + arrayId);
+            throw new AppException("Null pointer!");
+        }
+
         arrayMap.put(arrayId, element);
     }
 
@@ -33,12 +38,8 @@ public class ArrayWarehouse {
         return element;
     }
 
-    public ArrayParameters get(String arrayId) throws AppException {
+    public ArrayParameters get(String arrayId){
        ArrayParameters element = arrayMap.get(arrayId);
-       if(element == null){
-           LOGGER.log(Level.ERROR, "There are no such element!" + arrayId);
-           throw new AppException("There are no such element!" + arrayId);
-       }
 
        return element;
     }

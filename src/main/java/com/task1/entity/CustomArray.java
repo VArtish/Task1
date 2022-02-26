@@ -1,18 +1,24 @@
 package com.task1.entity;
 
 import com.task1.exception.AppException;
+import com.task1.observer.ArrayEvent;
+import com.task1.observer.ArrayObserver;
+import com.task1.observer.Observable;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
-public class CustomArray {
+public class CustomArray implements Observable {
 
     private int[] array;
     private String arrayId;
     private static final Logger LOGGER = LogManager.getLogger(CustomArray.class);
+    private List<ArrayObserver> observers = new ArrayList<>();
 
     public CustomArray() {
         this.arrayId = UUID.randomUUID().toString();
@@ -33,6 +39,7 @@ public class CustomArray {
             throw new AppException("Null pointer!");
         }
         this.array = array;
+        notifyObservers();
     }
 
     public int getElement(int index) throws AppException {
@@ -55,6 +62,7 @@ public class CustomArray {
         }
 
         this.array[index] = element;
+        notifyObservers();
     }
 
     @Override
@@ -86,5 +94,40 @@ public class CustomArray {
     @Override
     public int hashCode() {
         return Arrays.hashCode(array);
+    }
+
+    @Override
+    public void attach(ArrayObserver observer) throws AppException{
+        if(observer == null){
+            throw new AppException("Null pointer!");
+        }
+
+        observers.add(observer);
+    }
+
+    @Override
+    public void detach(ArrayObserver observer) throws AppException{
+        if(observer == null){
+            throw new AppException("Null pointer!");
+        }
+
+        if(!observers.contains(observer)){
+            throw new AppException("There are no such element!");
+        }
+
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(){
+        ArrayEvent event = new ArrayEvent(this);
+
+        if(!observers.isEmpty()) {
+            for (ArrayObserver o : observers) {
+                o.updateMax(event);
+                o.updateMin(event);
+                o.updateSum(event);
+            }
+        }
     }
 }
