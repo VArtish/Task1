@@ -1,6 +1,6 @@
 package com.task1.observer;
 
-public interface ArrayObserver extends Observer{
+public interface ArrayObserver{
 
     void updateSum(ArrayEvent event);
 
