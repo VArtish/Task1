@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 public class ArrayParser {
 
-    private static ArrayParser instance = null;
+    private static ArrayParser INSTANCE= null;
     private static final String PATTERN = "[-,\\s]+";
     private static final Logger LOGGER = LogManager.getLogger(ArrayParser.class);
 
@@ -18,11 +18,11 @@ public class ArrayParser {
     }
 
     public static ArrayParser getInstance() {
-        if (instance == null) {
-            instance = new ArrayParser();
+        if (INSTANCE == null) {
+            INSTANCE = new ArrayParser();
         }
 
-        return instance;
+        return INSTANCE;
     }
 
     public int[] parse(String arrayLine) throws AppException {

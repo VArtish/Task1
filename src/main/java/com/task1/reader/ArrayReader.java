@@ -13,18 +13,18 @@ import org.apache.logging.log4j.Logger;
 
 public class ArrayReader {
 
-    private static ArrayReader instance = null;
+    private static ArrayReader INSTANCE = null;
     private static final Logger LOGGER = LogManager.getLogger(ArrayReader.class);
 
     private ArrayReader() {
     }
 
     public static ArrayReader getInstance() {
-        if (instance == null) {
-            instance = new ArrayReader();
+        if (INSTANCE == null) {
+            INSTANCE = new ArrayReader();
         }
 
-        return instance;
+        return INSTANCE;
     }
 
     public String readFile(String path) throws AppException {

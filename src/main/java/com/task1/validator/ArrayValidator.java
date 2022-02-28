@@ -5,17 +5,17 @@ import org.apache.logging.log4j.Logger;
 
 public class ArrayValidator {
     private static final String PATTERN = "^\\d+([-,\\s]{1}\\d+)*$";
-    public static ArrayValidator instance = null;
+    public static ArrayValidator INSTANCE = null;
 
     private ArrayValidator() {
     }
 
     public static ArrayValidator getInstance() {
-        if (instance == null) {
-            instance = new ArrayValidator();
+        if (INSTANCE == null) {
+            INSTANCE = new ArrayValidator();
         }
 
-        return instance;
+        return INSTANCE;
     }
 
     public boolean validateArrayString(String line) {
