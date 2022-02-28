@@ -9,6 +9,8 @@ import com.task1.observer.ArrayObserver;
 import com.task1.service.impl.ArrayCalculatorImpl;
 import com.task1.service.impl.ArraySearcherImpl;
 
+import java.util.Optional;
+
 public class ArrayObserverImpl implements ArrayObserver {
 
     @Override
@@ -20,12 +22,10 @@ public class ArrayObserverImpl implements ArrayObserver {
 
         try{
             sum = arrayCalculator.calculatingSum(element);
+            parameters.setSum(sum);
         }
         catch(AppException e){
-            sum = -1;
         }
-
-        parameters.setSum(sum);
     }
 
     @Override
@@ -37,12 +37,10 @@ public class ArrayObserverImpl implements ArrayObserver {
 
         try{
             min = arraySearcher.findMin(element);
+            parameters.setSum(min);
         }
         catch(AppException e){
-            min = -1;
         }
-
-        parameters.setSum(min);
     }
 
     @Override
@@ -54,11 +52,9 @@ public class ArrayObserverImpl implements ArrayObserver {
 
         try{
             max = arraySearcher.findMax(element);
+            parameters.setSum(max);
         }
         catch(AppException e){
-            max = -1;
         }
-
-        parameters.setSum(max);
     }
 }

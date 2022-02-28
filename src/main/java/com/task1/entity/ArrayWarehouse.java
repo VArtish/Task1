@@ -25,7 +25,7 @@ public class ArrayWarehouse {
     }
 
     public void put(String arrayId, ArrayParameters element) throws AppException{
-        if(element == null){
+        if(element == null || arrayId == ""){
             LOGGER.log(Level.ERROR, "Null pointer" + arrayId);
             throw new AppException("Null pointer!");
         }
