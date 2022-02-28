@@ -8,10 +8,15 @@ import com.task1.observer.ArrayEvent;
 import com.task1.observer.ArrayObserver;
 import com.task1.service.impl.ArrayCalculatorImpl;
 import com.task1.service.impl.ArraySearcherImpl;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 
 public class ArrayObserverImpl implements ArrayObserver {
+
+    private static Logger LOGGER = LogManager.getLogger(ArrayObserverImpl.class);
 
     @Override
     public void updateSum(ArrayEvent event) {
@@ -25,6 +30,7 @@ public class ArrayObserverImpl implements ArrayObserver {
             parameters.setSum(sum);
         }
         catch(AppException e){
+            LOGGER.log(Level.ERROR, "AppException in updateMin");
         }
     }
 
@@ -40,6 +46,7 @@ public class ArrayObserverImpl implements ArrayObserver {
             parameters.setMin(min);
         }
         catch(AppException e){
+            LOGGER.log(Level.ERROR, "AppException in updateMin");
         }
     }
 
@@ -55,6 +62,7 @@ public class ArrayObserverImpl implements ArrayObserver {
             parameters.setMax(max);
         }
         catch(AppException e){
+            LOGGER.log(Level.ERROR, "AppException in updateMin");
         }
     }
 }

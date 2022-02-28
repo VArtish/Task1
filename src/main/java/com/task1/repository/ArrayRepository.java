@@ -42,22 +42,12 @@ public class ArrayRepository implements Repository<CustomArray> {
 
     @Override
     public boolean remove(CustomArray item) {
-       if(!items.contains(item)){
-           return false;
-       }
-
-       items.remove(item);
-       return true;
+       return items.remove(item);
     }
 
     @Override
     public boolean removeAll(Collection<CustomArray> items) {
-        if(!this.items.containsAll(items)){
-            return false;
-        }
-
-        items.removeAll(items);
-        return true;
+        return items.removeAll(items);
     }
 
     @Override

@@ -97,25 +97,17 @@ public class CustomArray implements Observable {
     }
 
     @Override
-    public void attach(ArrayObserver observer) throws AppException{
-        if(observer == null){
-            throw new AppException("Null pointer!");
+    public void attach(ArrayObserver observer){
+        if(!(observer == null)){
+            observers.add(observer);
         }
-
-        observers.add(observer);
     }
 
     @Override
-    public void detach(ArrayObserver observer) throws AppException{
-        if(observer == null){
-            throw new AppException("Null pointer!");
+    public void detach(ArrayObserver observer){
+        if(!(observer == null) && observers.contains(observer)) {
+            observers.remove(observer);
         }
-
-        if(!observers.contains(observer)){
-            throw new AppException("There are no such element!");
-        }
-
-        observers.remove(observer);
     }
 
     @Override
