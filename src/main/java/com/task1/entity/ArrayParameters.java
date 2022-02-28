@@ -47,13 +47,32 @@ public class ArrayParameters {
 
     @Override
     public boolean equals(Object o) {
-        // определить
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        ArrayParameters entity = (ArrayParameters) o;
+        if(getMax() != entity.getMax()){
+            return false;
+        }
+
+        if(getMin() != entity.getMin()){
+            return false;
+        }
+
+        if(getSum() != entity.getSum()){
+            return false;
+        }
+
         return true;
     }
 
     @Override
     public int hashCode() {
-        // определить
         return -1;
     }
 }
