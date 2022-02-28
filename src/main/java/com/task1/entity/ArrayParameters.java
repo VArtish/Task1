@@ -10,12 +10,6 @@ public class ArrayParameters {
     public ArrayParameters() {
     }
 
-    public ArrayParameters(int sum, int min, int max){
-        this.sum = sum;
-        this.min = min;
-        this.max = max;
-    }
-
     public int getMax() {
         return max;
     }

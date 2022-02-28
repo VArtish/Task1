@@ -37,7 +37,7 @@ public class ArrayObserverImpl implements ArrayObserver {
 
         try{
             min = arraySearcher.findMin(element);
-            parameters.setSum(min);
+            parameters.setMin(min);
         }
         catch(AppException e){
         }
@@ -52,7 +52,7 @@ public class ArrayObserverImpl implements ArrayObserver {
 
         try{
             max = arraySearcher.findMax(element);
-            parameters.setSum(max);
+            parameters.setMax(max);
         }
         catch(AppException e){
         }

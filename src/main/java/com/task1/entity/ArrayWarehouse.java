@@ -5,13 +5,14 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ArrayWarehouse {
 
     private final static Logger LOGGER = LogManager.getLogger(ArrayWarehouse.class);
     private static ArrayWarehouse INSTANCE = null;
-    private Map<String, ArrayParameters> arrayMap;
+    private Map<String, ArrayParameters> arrayMap = new HashMap<String, ArrayParameters>();
 
     private ArrayWarehouse(){
     }
