@@ -2,6 +2,7 @@ package com.task1.repository;
 
 import com.task1.entity.CustomArray;
 import com.task1.exception.AppException;
+import com.task1.specification.Specification;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -67,6 +68,19 @@ public class ArrayRepository implements Repository<CustomArray> {
     @Override
     public List<CustomArray> getAll() {
         return List.copyOf(items);
+    }
+
+    @Override
+    public List<CustomArray> query(Specification specification) {
+        List<CustomArray> queryList = new ArrayList<CustomArray>();
+
+        for(int i = 0; i < items.size(); i++){
+            if(specification.specify(items.get(i))){
+                queryList.add(items.get(i));
+            }
+        }
+
+        return queryList;
     }
 
     @Override

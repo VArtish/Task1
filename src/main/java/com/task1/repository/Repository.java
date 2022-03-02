@@ -1,6 +1,7 @@
 package com.task1.repository;
 
 import com.task1.exception.AppException;
+import com.task1.specification.Specification;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -23,4 +24,6 @@ public interface Repository<T> {
     T get(int index) throws AppException;
 
     List<T> getAll();
+
+    List<T> query(Specification specification);
 }
