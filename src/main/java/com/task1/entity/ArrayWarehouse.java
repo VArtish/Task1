@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ArrayWarehouse {
 
-    private final static Logger LOGGER = LogManager.getLogger(ArrayWarehouse.class);
+    private static final Logger LOGGER = LogManager.getLogger(ArrayWarehouse.class);
     private static ArrayWarehouse INSTANCE = null;
     private Map<String, ArrayParameters> arrayMap = new HashMap<String, ArrayParameters>();
 
