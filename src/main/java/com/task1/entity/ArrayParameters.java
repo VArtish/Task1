@@ -1,6 +1,7 @@
 package com.task1.entity;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ArrayParameters {
     private int sum;
@@ -73,6 +74,6 @@ public class ArrayParameters {
 
     @Override
     public int hashCode() {
-        return -1;
+        return Objects.hash(min, max, sum);
     }
 }
