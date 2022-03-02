@@ -9,6 +9,7 @@ public class ArrayIdSpecification implements Specification<CustomArray> {
     public ArrayIdSpecification(String id){
         this.id = id;
     }
+
     @Override
     public boolean specify(CustomArray item) {
         boolean result = item.getArrayId().equals(id);

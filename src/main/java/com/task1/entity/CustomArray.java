@@ -108,6 +108,7 @@ public class CustomArray implements Observable {
         if(!(observer == null) && observers.contains(observer)) {
             observers.remove(observer);
         }
+
     }
 
     @Override
