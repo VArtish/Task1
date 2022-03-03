@@ -10,8 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.function.Predicate;
 
-public class ArrayManipulatorImpl implements ArrayManipulator{
-
+public class ArrayManipulatorImpl implements ArrayManipulator {
     private static final Logger LOGGER = LogManager.getLogger(ArrayManipulatorImpl.class);
 
     @Override
