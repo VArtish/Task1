@@ -3,7 +3,6 @@ package com.task1.repository;
 import com.task1.entity.CustomArray;
 import com.task1.exception.AppException;
 import com.task1.specification.Specification;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -37,11 +36,6 @@ public class ArrayRepository implements Repository<CustomArray> {
     }
 
     @Override
-    public void addAll(Collection<CustomArray> items) {
-        items.addAll(items);
-    }
-
-    @Override
     public boolean remove(CustomArray item) {
        return items.remove(item);
     }
@@ -66,7 +60,7 @@ public class ArrayRepository implements Repository<CustomArray> {
     }
 
     @Override
-    public List<CustomArray> getAll() {
+    public List<CustomArray> findAll() {
         return List.copyOf(items);
     }
 
@@ -81,10 +75,5 @@ public class ArrayRepository implements Repository<CustomArray> {
         }
 
         return queryList;
-    }
-
-    @Override
-    public void set(int index, CustomArray item){
-        items.set(index, item);
     }
 }

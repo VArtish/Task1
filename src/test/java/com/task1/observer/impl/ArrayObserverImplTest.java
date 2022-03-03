@@ -17,16 +17,12 @@ public class ArrayObserverImplTest {
     private ArrayEvent event;
 
     @BeforeTest
-    public void setUp() {
+    public void setUp() throws AppException {
         CustomArray array = new CustomArray(1, 2, 3);
         event = new ArrayEvent(array);
         ArrayParameters parameters = new ArrayParameters();
-        try {
-            ArrayWarehouse.getInstance().put(array.getArrayId(), parameters);
-            array.attach(new ArrayObserverImpl());
-        }
-        catch(AppException a) {
-        }
+        ArrayWarehouse.getInstance().put(array.getArrayId(), parameters);
+        array.attach(new ArrayObserverImpl());
     }
 
     @Test

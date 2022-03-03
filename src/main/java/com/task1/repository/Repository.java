@@ -8,12 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public interface Repository<T> {
-
-    void set(int index, T item) throws AppException;
-
     void add(T item);
-
-    void addAll(Collection<T> items);
 
     boolean remove(T item);
 
@@ -23,7 +18,7 @@ public interface Repository<T> {
 
     T get(int index) throws AppException;
 
-    List<T> getAll();
+    List<T> findAll();
 
     List<T> query(Specification specification);
 }

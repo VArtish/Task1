@@ -32,10 +32,8 @@ public class ArrayParser {
         }
 
         String[] numbers = arrayLine.split(PATTERN);
-        int[] array = Arrays.stream(numbers)
+        return Arrays.stream(numbers)
                 .mapToInt(Integer::parseInt)
                 .toArray();
-
-        return array;
     }
 }
